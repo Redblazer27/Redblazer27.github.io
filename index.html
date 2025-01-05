@@ -1,200 +1,641 @@
 <!DOCTYPE html>
 <html lang="it">
+<!-- Previous head section and styles remain exactly the same -->
+<!-- Adding all content across all 7 categories -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elenco Completo Cheat Minecraft</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Guide Complete Minecraft</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
+        /* All previous styles remain the same */
+        :root {
+            --primary: #5046e5;
+            --primary-light: #eef2ff;
+            --background: #ffffff;
+            --card-bg: #ffffff;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --border: #e5e7eb;
+            --hover: #f3f4f6;
+            --accent: #3b82f6;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            transition: all 0.2s ease;
         }
 
-        header {
-            background-color: #1e2a47;
-            color: white;
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #5046e5 0%, #3b82f6 100%);
+            padding: 120px 20px;
             text-align: center;
-            padding: 50px 0;
+            position: relative;
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
+        .hero h1 {
+            font-weight: 700;
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: -0.025em;
         }
 
         .container {
-            max-width: 1100px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
         }
 
-        h2 {
-            color: #1e2a47;
+        .category {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border);
+        }
+
+        .category:hover {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        .category h2 {
+            color: var(--text);
             font-size: 2rem;
-            margin-top: 20px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            letter-spacing: -0.025em;
         }
 
-        ul {
-            list-style-type: none;
-            padding-left: 0;
+        .category h3 {
+            color: var(--text);
+            font-size: 1.5rem;
+            margin: 30px 0 20px;
+            font-weight: 600;
         }
 
-        li {
+        .cheats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .cheat-item {
+            background: var(--background);
+            border-radius: 16px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .cheat-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border-color: var(--primary);
+        }
+
+        .cheat-name {
+            color: var(--primary);
+            font-weight: 600;
             font-size: 1.1rem;
-            line-height: 1.8;
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
+            margin-bottom: 8px;
         }
 
-        li:last-child {
-            border-bottom: none;
+        .description {
+            color: var(--text-light);
+            font-size: 0.95rem;
         }
 
-        a {
-            color: #1e2a47;
+        .nav-menu {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 16px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            list-style: none;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-item a {
+            color: var(--text);
             text-decoration: none;
-            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 500;
+            font-size: 0.95rem;
         }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #1e2a47;
+        .nav-item a:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: var(--primary);
             color: white;
-            margin-top: 40px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            font-size: 24px;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .intro-text {
+            color: white;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .category {
+                padding: 24px;
+            }
+
+            .category h2 {
+                font-size: 1.75rem;
+            }
+
+            .cheats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-menu {
+                padding: 12px;
+            }
+
+            .nav-list {
+                gap: 12px;
+            }
+
+            .nav-item a {
+                padding: 6px 12px;
+                font-size: 0.9rem;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1>Elenco Completo dei Cheat di Minecraft</h1>
-</header>
+<div class="hero">
+    <h1>Guide Complete Minecraft</h1>
+    <p class="intro-text">Una raccolta completa di modifiche e funzionalità avanzate per Minecraft</p>
+</div>
+
+<nav class="nav-menu">
+    <ul class="nav-list">
+        <li class="nav-item"><a href="#movimento">Movimento</a></li>
+        <li class="nav-item"><a href="#combattimento">Combattimento</a></li>
+        <li class="nav-item"><a href="#visione">Visione</a></li>
+        <li class="nav-item"><a href="#automazione">Automazione</a></li>
+        <li class="nav-item"><a href="#gameplay">Gameplay</a></li>
+        <li class="nav-item"><a href="#restrizioni">Anti-Restrizioni</a></li>
+        <li class="nav-item"><a href="#interazione">Interazione</a></li>
+    </ul>
+</nav>
 
 <div class="container">
-    <p>Benvenuto nella lista dei cheat di Minecraft. Qui troverai un elenco completo suddiviso in categorie. Clicca sui link per maggiori dettagli.</p>
+    <!-- 1. Movimento Section -->
+    <section id="movimento" class="category">
+        <h2>1. Cheat per il Movimento</h2>
+        <div class="cheats-grid">
+            <div class="cheat-item">
+                <div class="cheat-name">Fly</div>
+                <div class="description">Permette di volare liberamente senza modalità creativa.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Speed</div>
+                <div class="description">Aumenta la velocità di movimento.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">NoFall</div>
+                <div class="description">Evita o riduce i danni da caduta.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">HighJump</div>
+                <div class="description">Permette di saltare più in alto del normale.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Step</div>
+                <div class="description">Permette di salire automaticamente su blocchi alti senza saltare.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Spider</div>
+                <div class="description">Consente di arrampicarsi sui muri.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Jesus</div>
+                <div class="description">Permette di camminare sull'acqua o sulla lava.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Glide</div>
+                <div class="description">Rallenta la caduta, come se si usassero le Elytra.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Levitate</div>
+                <div class="description">Permette di galleggiare lentamente verso l'alto.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">BunnyHop (BHop)</div>
+                <div class="description">Salti rapidi che aumentano la velocità di movimento.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">ElytraHack</div>
+                <div class="description">Migliora il controllo e la velocità con le Elytra.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Teleport</div>
+                <div class="description">Consente di teletrasportarsi in posizioni specifiche.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">ParkourHelper</div>
+                <div class="description">Aiuta automaticamente a superare percorsi parkour.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AntiVoid</div>
+                <div class="description">Ti salva automaticamente se stai per cadere nel vuoto.</div>
+            </div>
+        </div>
+    </section>
 
-    <h2>1. Cheat per il Movimento</h2>
-    <ul>
-        <li><strong>Fly:</strong> Permette di volare liberamente senza modalità creativa.</li>
-        <li><strong>Speed:</strong> Aumenta la velocità di movimento.</li>
-        <li><strong>NoFall:</strong> Evita o riduce i danni da caduta.</li>
-        <li><strong>HighJump:</strong> Permette di saltare più in alto del normale.</li>
-        <li><strong>Step:</strong> Permette di salire automaticamente su blocchi alti senza saltare.</li>
-        <li><strong>Spider:</strong> Consente di arrampicarsi sui muri.</li>
-        <li><strong>Jesus:</strong> Permette di camminare sull’acqua o sulla lava.</li>
-        <li><strong>Glide:</strong> Rallenta la caduta, come se si usassero le Elytra.</li>
-        <li><strong>Levitate:</strong> Permette di galleggiare lentamente verso l’alto.</li>
-        <li><strong>BunnyHop (BHop):</strong> Salti rapidi che aumentano la velocità di movimento.</li>
-        <li><strong>ElytraHack:</strong> Migliora il controllo e la velocità con le Elytra.</li>
-        <li><strong>Teleport:</strong> Consente di teletrasportarsi in posizioni specifiche.</li>
-        <li><strong>ParkourHelper:</strong> Aiuta automaticamente a superare percorsi parkour.</li>
-        <li><strong>AntiVoid:</strong> Ti salva automaticamente se stai per cadere nel vuoto.</li>
-    </ul>
+    <!-- 2. Combattimento Section -->
+    <section id="combattimento" class="category">
+        <h2>2. Cheat per il Combattimento</h2>
+        <h3>Miglioramenti offensivi</h3>
+        <div class="cheats-grid">
+            <div class="cheat-item">
+                <div class="cheat-name">KillAura</div>
+                <div class="description">Colpisce automaticamente i nemici vicini.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">MultiAura</div>
+                <div class="description">Colpisce più nemici contemporaneamente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Aimbot</div>
+                <div class="description">Mira automaticamente ai nemici.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Criticals</div>
+                <div class="description">Attiva colpi critici senza bisogno di saltare.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoClicker</div>
+                <div class="description">Effettua clic rapidissimi automaticamente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Reach</div>
+                <div class="description">Aumenta la distanza alla quale puoi colpire un nemico.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">BowAimbot</div>
+                <div class="description">Mira automaticamente con l'arco.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoSword</div>
+                <div class="description">Cambia automaticamente alla spada migliore disponibile.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">TriggerBot</div>
+                <div class="description">Attacca automaticamente quando un nemico entra nel mirino.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">FastBow</div>
+                <div class="description">Permette di caricare e tirare frecce più velocemente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Velocity</div>
+                <div class="description">Riduce o elimina il knockback subito durante i combattimenti.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">ForceField</div>
+                <div class="description">Colpisce automaticamente qualsiasi entità vicina.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoTotem</div>
+                <div class="description">Sostituisce automaticamente i totem nella mano secondaria.</div>
+            </div>
+        </div>
 
-    <h2>2. Cheat per il Combattimento</h2>
-    <h3>Miglioramenti offensivi</h3>
-    <ul>
-        <li><strong>KillAura:</strong> Colpisce automaticamente i nemici vicini.</li>
-        <li><strong>MultiAura:</strong> Colpisce più nemici contemporaneamente.</li>
-        <li><strong>Aimbot:</strong> Mira automaticamente ai nemici.</li>
-        <li><strong>Criticals:</strong> Attiva colpi critici senza bisogno di saltare.</li>
-        <li><strong>AutoClicker:</strong> Effettua clic rapidissimi automaticamente.</li>
-        <li><strong>Reach:</strong> Aumenta la distanza alla quale puoi colpire un nemico.</li>
-        <li><strong>BowAimbot:</strong> Mira automaticamente con l’arco.</li>
-        <li><strong>AutoSword:</strong> Cambia automaticamente alla spada migliore disponibile.</li>
-        <li><strong>TriggerBot:</strong> Attacca automaticamente quando un nemico entra nel mirino.</li>
-        <li><strong>FastBow:</strong> Permette di caricare e tirare frecce più velocemente.</li>
-        <li><strong>Velocity:</strong> Riduce o elimina il knockback subito durante i combattimenti.</li>
-        <li><strong>ForceField:</strong> Colpisce automaticamente qualsiasi entità vicina.</li>
-        <li><strong>AutoTotem:</strong> Sostituisce automaticamente i totem nella mano secondaria.</li>
-    </ul>
+        <h3>Difesa e resistenza</h3>
+        <div class="cheats-grid">
+            <div class="cheat-item">
+                <div class="cheat-name">AntiKnockback</div>
+                <div class="description">Rende immune al knockback.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">GodMode</div>
+                <div class="description">Rende invulnerabili a danni.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">ShieldBypass</div>
+                <div class="description">Ignora gli scudi dei nemici.</div>
+            </div>
+            <div class="cheat-item">      
+            <div class="cheat-name">Regen</div>
+                <div class="description">Rigenera la salute più velocemente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoArmor</div>
+                <div class="description">Indossa automaticamente l'armatura migliore disponibile.</div>
+            </div>
+        </div>
+    </section>
 
-    <h3>Difesa e resistenza</h3>
-    <ul>
-        <li><strong>AntiKnockback:</strong> Rende immune al knockback.</li>
-        <li><strong>GodMode:</strong> Rende invulnerabili a danni.</li>
-        <li><strong>ShieldBypass:</strong> Ignora gli scudi dei nemici.</li>
-        <li><strong>Regen:</strong> Rigenera la salute più velocemente.</li>
-        <li><strong>AutoArmor:</strong> Indossa automaticamente l’armatura migliore disponibile.</li>
-    </ul>
+    <!-- 3. Visione Section -->
+    <section id="visione" class="category">
+        <h2>3. Cheat di Visione</h2>
+        <div class="cheats-grid">
+            <div class="cheat-item">
+                <div class="cheat-name">X-Ray</div>
+                <div class="description">Mostra blocchi specifici come minerali o spawner nascosti.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">ESP (Entity Sensory Perception)</div>
+                <div class="description">Evidenzia entità come giocatori, mob o oggetti.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Tracers</div>
+                <div class="description">Disegna linee che indicano la posizione di entità o giocatori.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">FullBright</div>
+                <div class="description">Illumina l'ambiente come se fosse sempre giorno.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">CaveFinder</div>
+                <div class="description">Rivela caverne e spazi vuoti.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">NameTags</div>
+                <div class="description">Mostra nomi di giocatori attraverso muri o con caratteri più grandi.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Hitbox Viewer</div>
+                <div class="description">Mostra i contorni delle hitbox delle entità.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Wallhack</div>
+                <div class="description">Permette di vedere attraverso i muri.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">CameraClip</div>
+                <div class="description">Permette di attraversare i blocchi in modalità spettatore.</div>
+            </div>
+        </div>
+    </section>
 
-    <h2>3. Cheat di Visione</h2>
-    <ul>
-        <li><strong>X-Ray:</strong> Mostra blocchi specifici come minerali o spawner nascosti.</li>
-        <li><strong>ESP (Entity Sensory Perception):</strong> Evidenzia entità come giocatori, mob o oggetti.</li>
-        <li><strong>Tracers:</strong> Disegna linee che indicano la posizione di entità o giocatori.</li>
-        <li><strong>FullBright:</strong> Illumina l’ambiente come se fosse sempre giorno.</li>
-        <li><strong>CaveFinder:</strong> Rivela caverne e spazi vuoti.</li>
-        <li><strong>NameTags:</strong> Mostra nomi di giocatori attraverso muri o con caratteri più grandi.</li>
-        <li><strong>Hitbox Viewer:</strong> Mostra i contorni delle hitbox delle entità.</li>
-        <li><strong>Wallhack:</strong> Permette di vedere attraverso i muri.</li>
-        <li><strong>CameraClip:</strong> Permette di attraversare i blocchi in modalità spettatore.</li>
-    </ul>
+    <!-- 4. Automazione Section -->
+    <section id="automazione" class="category">
+        <h2>4. Cheat di Automazione</h2>
+        <div class="cheats-grid">
+            <div class="cheat-item">
+                <div class="cheat-name">AutoMine</div>
+                <div class="description">Miniera automatica di blocchi specifici.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoFarm</div>
+                <div class="description">Coltiva e raccoglie automaticamente risorse agricole.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoFish</div>
+                <div class="description">Pesca automaticamente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoBuild</div>
+                <div class="description">Costruisce automaticamente strutture seguendo uno schema predefinito.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoTool</div>
+                <div class="description">Cambia automaticamente lo strumento migliore per l'azione in corso.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoEat</div>
+                <div class="description">Mangia automaticamente quando la fame è bassa.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoBridge</div>
+                <div class="description">Costruisce automaticamente un ponte mentre cammini.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoEnchant</div>
+                <div class="description">Sceglie e applica automaticamente i migliori incantesimi disponibili.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoPotion</div>
+                <div class="description">Usa automaticamente le pozioni per guarire o migliorare statistiche.</div>
+            </div>
+        </div>
+    </section>
 
-    <h2>4. Cheat di Automazione</h2>
-    <ul>
-        <li><strong>AutoMine:</strong> Miniera automatica di blocchi specifici.</li>
-        <li><strong>AutoFarm:</strong> Coltiva e raccoglie automaticamente risorse agricole.</li>
-        <li><strong>AutoFish:</strong> Pesca automaticamente.</li>
-        <li><strong>AutoBuild:</strong> Costruisce automaticamente strutture seguendo uno schema predefinito.</li>
-        <li><strong>AutoTool:</strong> Cambia automaticamente lo strumento migliore per l’azione in corso.</li>
-        <li><strong>AutoEat:</strong> Mangia automaticamente quando la fame è bassa.</li>
-        <li><strong>AutoBridge:</strong> Costruisce automaticamente un ponte mentre cammini.</li>
-        <li><strong>AutoEnchant:</strong> Sceglie e applica automaticamente i migliori incantesimi disponibili.</li>
-        <li><strong>AutoPotion:</strong> Usa automaticamente le pozioni per guarire o migliorare statistiche.</li>
-    </ul>
+    <!-- 5. Gameplay Section -->
+    <section id="gameplay" class="category">
+        <h2>5. Cheat per la Modifica del Gameplay</h2>
+        <div class="cheats-grid">
+            <div class="cheat-item">
+                <div class="cheat-name">InventoryTweaks</div>
+                <div class="description">Organizza automaticamente l'inventario.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Freecam</div>
+                <div class="description">Permette di muovere la visuale liberamente come una telecamera esterna.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Dupe (Duplicazione)</div>
+                <div class="description">Duplica oggetti o blocchi illegalmente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Nuker</div>
+                <div class="description">Distrugge rapidamente tutti i blocchi in un'area selezionata.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Scaffold</div>
+                <div class="description">Costruisce automaticamente sotto di te.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Timer</div>
+                <div class="description">Aumenta o diminuisce la velocità globale del gioco.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">FastPlace</div>
+                <div class="description">Permette di piazzare blocchi più velocemente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">FastBreak</div>
+                <div class="description">Rompe blocchi più velocemente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">ChestStealer</div>
+                <div class="description">Ruba automaticamente tutto il contenuto di un forziere.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Phase</div>
+                <div class="description">Permette di attraversare muri o blocchi.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">PortalGodMode</div>
+                <div class="description">Rende invulnerabili mentre si attraversa un portale.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">ElytraBoost</div>
+                <div class="description">Aumenta la velocità di volo con le Elytra.</div>
+            </div>
+        </div>
+    </section>
 
-    <h2>5. Cheat per la Modifica del Gameplay</h2>
-    <ul>
-        <li><strong>InventoryTweaks:</strong> Organizza automaticamente l’inventario.</li>
-        <li><strong>Freecam:</strong> Permette di muovere la visuale liberamente come una telecamera esterna.</li>
-        <li><strong>Dupe (Duplicazione):</strong> Duplica oggetti o blocchi illegalmente.</li>
-        <li><strong>Nuker:</strong> Distrugge rapidamente tutti i blocchi in un’area selezionata.</li>
-        <li><strong>Scaffold:</strong> Costruisce automaticamente sotto di te.</li>
-        <li><strong>Timer:</strong> Aumenta o diminuisce la velocità globale del gioco.</li>
-        <li><strong>FastPlace:</strong> Permette di piazzare blocchi più velocemente.</li>
-        <li><strong>FastBreak:</strong> Rompe blocchi più velocemente.</li>
-        <li><strong>ChestStealer:</strong> Ruba automaticamente tutto il contenuto di un forziere.</li>
-        <li><strong>Phase:</strong> Permette di attraversare muri o blocchi.</li>
-        <li><strong>PortalGodMode:</strong> Rende invulnerabili mentre si attraversa un portale.</li>
-        <li><strong>ElytraBoost:</strong> Aumenta la velocità di volo con le Elytra.</li>
-    </ul>
+    <!-- 6. Anti-Restrizioni Section -->
+    <section id="restrizioni" class="category">
+        <h2>6. Cheat Anti-Restrizioni</h2>
+        <div class="cheats-grid">
+            <div class="cheat-item">
+                <div class="cheat-name">AntiAFK</div>
+                <div class="description">Evita la disconnessione per inattività.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">NoSlow</div>
+                <div class="description">Evita rallentamenti durante azioni come mangiare o bloccare con lo scudo.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">WaterWalk</div>
+                <div class="description">Camminare su superfici d'acqua congelandole temporaneamente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AntiBlind</div>
+                <div class="description">Evita gli effetti di cecità.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AntiLevitation</div>
+                <div class="description">Neutralizza l'effetto di levitazione (es. shulker).</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AntiHunger</div>
+                <div class="description">Riduce il consumo di cibo.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">Blink</div>
+                <div class="description">Simula lag temporaneo per teletrasportarti.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">CrashExploit</div>
+                <div class="description">Causa crash del server o di altri giocatori.</div>
+            </div>
+        </div>
+    </section>
 
-    <h2>6. Cheat Anti-Restrizioni</h2>
-    <ul>
-        <li><strong>AntiAFK:</strong> Evita la disconnessione per inattività.</li>
-        <li><strong>NoSlow:</strong> Evita rallentamenti durante azioni come mangiare o bloccare con lo scudo.</li>
-        <li><strong>WaterWalk:</strong> Camminare su superfici d’acqua congelandole temporaneamente.</li>
-        <li><strong>AntiBlind:</strong> Evita gli effetti di cecità.</li>
-        <li><strong>AntiLevitation:</strong> Neutralizza l’effetto di levitazione (es. shulker).</li>
-        <li><strong>AntiHunger:</strong> Riduce il consumo di cibo.</li>
-        <li><strong>Blink:</strong> Simula lag temporaneo per teletrasportarti.</li>
-        <li><strong>CrashExploit:</strong> Causa crash del server o di altri giocatori.</li>
-    </ul>
-
-    <h2>7. Cheat di Interazione con Server e Chat</h2>
-    <ul>
-        <li><strong>ChatSpammer:</strong> Invia messaggi ripetitivi in chat.</li>
-        <li><strong>CommandBot:</strong> Esegue comandi automaticamente.</li>
-        <li><strong>FakeChat:</strong> Simula messaggi inviati da altri giocatori.</li>
-        <li><strong>AutoReply:</strong> Risponde automaticamente ai messaggi in chat.</li>
-        <li><strong>AntiSpam:</strong> Filtra messaggi spam in chat.</li>
-        <li><strong>FakeLag:</strong> Simula lag per confondere gli altri giocatori.</li>
-        <li><strong>TeleportBypass:</strong> Ignora i cooldown o i limiti di teletrasporto.</li>
-    </ul>
-
-    <footer>
-        <p>Per ulteriori dettagli su ciascun cheat, non esitare a chiedere!</p>
-    </footer>
+    <!-- 7. Interazione con Server e Chat Section -->
+    <section id="interazione" class="category">
+        <h2>7. Cheat di Interazione con Server e Chat</h2>
+        <div class="cheats-grid">
+            <div class="cheat-item">
+                <div class="cheat-name">ChatSpammer</div>
+                <div class="description">Invia messaggi ripetitivi in chat.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">CommandBot</div>
+                <div class="description">Esegue comandi automaticamente.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">FakeChat</div>
+                <div class="description">Simula messaggi inviati da altri giocatori.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AutoReply</div>
+                <div class="description">Risponde automaticamente ai messaggi in chat.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">AntiSpam</div>
+                <div class="description">Filtra messaggi spam in chat.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">FakeLag</div>
+                <div class="description">Simula lag per confondere gli altri giocatori.</div>
+            </div>
+            <div class="cheat-item">
+                <div class="cheat-name">TeleportBypass</div>
+                <div class="description">Ignora i cooldown o i limiti di teletrasporto.</div>
+            </div>
+        </div>
+    </section>
 </div>
+
+<div class="scroll-top">↑</div>
+
+<script>
+    // Show/hide scroll to top button
+    window.addEventListener('scroll', () => {
+        const scrollBtn = document.querySelector('.scroll-top');
+        if (window.scrollY > 500) {
+            scrollBtn.classList.add('visible');
+        } else {
+            scrollBtn.classList.remove('visible');
+        }
+    });
+
+    // Smooth scroll to top
+    document.querySelector('.scroll-top').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
 
 </body>
 </html>
